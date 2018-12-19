@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('good_popularity');
             $table->integer('bad_popularity');
 
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('Cascade')->onDelete('Cascade');
 
             $table->rememberToken();
             $table->timestamps();

@@ -19,9 +19,9 @@ class CreatePopularitiesTable extends Migration
             $table->integer('target_user_id')->unsigned()->default();
             $table->integer('popularity_status_id')->unsigned()->default();
 
-            $table->foreign('voter_user_id')->references('id')->on('users');
-            $table->foreign('target_user_id')->references('id')->on('users');
-            $table->foreign('popularity_status_id')->references('id')->on('popularity_status');
+            $table->foreign('voter_user_id')->references('id')->on('users')->onUpdate('Cascade')->onDelete('Cascade');
+            $table->foreign('target_user_id')->references('id')->on('users')->onUpdate('Cascade')->onDelete('Cascade');
+            $table->foreign('popularity_status_id')->references('id')->on('popularity_status')->onUpdate('Cascade')->onDelete('Cascade');
             
             $table->timestamps();
         });

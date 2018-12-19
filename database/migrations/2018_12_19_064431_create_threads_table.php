@@ -19,8 +19,8 @@ class CreateThreadsTable extends Migration
             $table->integer('forum_id')->unsigned()->default();
             $table->string('content',191);
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('forum_id')->references('id')->on('forums');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('Cascade')->onDelete('Cascade');
+            $table->foreign('forum_id')->references('id')->on('forums')->onUpdate('Cascade')->onDelete('Cascade');
 
             $table->timestamps();
         });

@@ -21,9 +21,9 @@ class CreateForumsTable extends Migration
             $table->string('title',191);
             $table->string('description', 191);
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('categories'); 
-            $table->foreign('forum_status_id')->references('id')->on('forum_status');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('Cascade')->onDelete('Cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('Cascade')->onDelete('Cascade'); 
+            $table->foreign('forum_status_id')->references('id')->on('forum_status')->onUpdate('Cascade')->onDelete('Cascade');
 
             $table->timestamps();
         });
